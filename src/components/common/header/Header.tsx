@@ -5,6 +5,7 @@ import SignInButton from './SignInButton'
 import SignOutButton from './SignOutButton'
 import CodeEditorButton from './CodeEditorButton'
 import { useAuth0 } from '@auth0/auth0-react'
+import DarkModeSwitch from './DarkModeSwitch'
 
 
 const StyledLink = styled(Link)(({theme}) => ({
@@ -18,8 +19,9 @@ function Header() {
 		<AppBar position='relative'>
 			<Toolbar>
 				<Typography variant='h6' sx={{flex:1}}>
-					<StyledLink to='/'>Code Editor App</StyledLink>
+					<StyledLink to='/'>Stella SandBox</StyledLink>
 				</Typography>
+				<DarkModeSwitch/>
 				{isAuthenticated ? <AuthenticatedButtons/> : <UnauthenticatedButtons/>}
 			</Toolbar>
 		</AppBar>

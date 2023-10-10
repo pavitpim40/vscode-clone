@@ -1,6 +1,7 @@
 import {PropsWithChildren} from 'react'
 import { createTheme,ThemeProvider } from '@mui/material/styles'
 import {commonColors,darkColors,lightColors} from './colors'
+import { useAppSelector } from 'store/hooks'
 
 // Declare
 declare module '@mui/material/styles' {
@@ -20,7 +21,7 @@ declare module '@mui/material/styles' {
 
 
 const CustomThemeProvider = ({children}:PropsWithChildren) => {
-	const darkMode = false
+	const darkMode = useAppSelector(state => state.darkMode)
 	const theme  = createTheme({
 		palette: {
 			mode : darkMode ? 'dark' : 'light',
