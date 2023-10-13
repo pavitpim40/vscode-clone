@@ -67,7 +67,7 @@ describe('files slice', () => {
 
   it('should update file code when the action is updateFileCode', () => {
     const payload = {
-      filedId: '1',
+      fileId: '1',
       newCode: 'console.log("change")',
     };
 
@@ -102,7 +102,7 @@ describe('files slice', () => {
 
   it('should not update the state when the file is not found', () => {
     const payload = {
-      filedId: '2',
+      fileId: '2',
       newCode: 'console.log("change")',
     };
 
