@@ -8,7 +8,19 @@ const OpenWorkspaceStyledButton = styled(Button)(({ theme }) => ({
   color: theme.commonColors.white,
 }));
 
-const InputFile = styled('input')({ display: 'none' });
+// const InputFile = styled('input')({ display: 'block' }).attrs({
+//   type: 'file',
+//   webkitdirectory: '',
+//   multiple: true,
+// });
+
+// const InputFile = styled('input')({ display: 'block' });
+
+// InputFile.defaultProps = {
+//   type: 'file',
+//   webkitdirectory: true,
+//   multiple: true,
+// };
 
 const OpenWorkspaceButton = () => {
   const directoryInputRef = useRef(null);
@@ -29,13 +41,13 @@ const OpenWorkspaceButton = () => {
   return (
     <div>
       <OpenWorkspaceStyledButton onClick={onClick}>Open WorkSpace</OpenWorkspaceStyledButton>
-      <InputFile
+      <input
         type="file"
-        directory=""
-        webkitdirectory=""
-        multiple
         ref={directoryInputRef}
         onChange={onFileUploaded}
+        webkitdirectory=""
+        multiple
+        style={{ display: 'none' }}
       />
     </div>
   );
