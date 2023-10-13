@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
       domain="dev-7fuylo00qknbsiv1.us.auth0.com"
       clientId="Dy8BSryIiuAHeUv1GAn1paYjkdYUxLEE"
       authorizationParams={{
-        redirect_uri: window.location.origin,
+        redirect_uri: window.location.origin + '/code-editor',
       }}
     >
       {children}
