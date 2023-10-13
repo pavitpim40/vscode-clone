@@ -7,13 +7,13 @@ it('should return active files', () => {
     { id: '3', name: 'index.css', relativePath: 'src/index.css', code: 'h1 { color: red; }', extension: 'css' },
   ];
 
-  const activeFileIds = ['3', '1'];
+  const activeFilesIds = ['3', '1'];
 
   const state = {
     // you can use .js for test only significant part of state
     files: {
       userFiles,
-      activeFileIds,
+      activeFilesIds,
       editorActiveFileId: null,
     },
     // mock pass TS

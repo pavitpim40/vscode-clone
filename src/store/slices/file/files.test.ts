@@ -3,7 +3,7 @@ import {
   setFiles,
   addActiveFile,
   removeActiveFile,
-  setEditorActiveFileId,
+  setEditorActiveFile,
   updateFileCode,
   fileReducer,
 } from './files';
@@ -18,7 +18,7 @@ describe('files slice', () => {
     const expectedState = {
       ...initialState,
       userFiles,
-      activeFileIds: [],
+      activeFilesIds: [],
     };
 
     expect(fileReducer(initialState, setFiles(userFiles))).toEqual(expectedState);
@@ -27,7 +27,7 @@ describe('files slice', () => {
   it('should add active file when the action is addActiveFile', () => {
     const expectedState = {
       ...initialState,
-      activeFileIds: ['1'],
+      activeFilesIds: ['1'],
     };
 
     expect(fileReducer(initialState, addActiveFile('1'))).toEqual(expectedState);
@@ -36,33 +36,33 @@ describe('files slice', () => {
   it('should remove active file when the action is removeActiveFile', () => {
     const modifiedInitialState = {
       ...initialState,
-      activeFileIds: ['1'],
+      activeFilesIds: ['1'],
     };
 
     const expectedState = {
       ...initialState,
-      activeFileIds: [],
+      activeFilesIds: [],
     };
 
     expect(fileReducer(modifiedInitialState, removeActiveFile('1'))).toEqual(expectedState);
   });
 
-  it('should set editor active file id when the action is setEditorActiveFileId', () => {
+  it('should set editor active file id when the action is setEditorActiveFile', () => {
     const expectedState = {
       ...initialState,
       editorActiveFileId: '1',
     };
 
-    expect(fileReducer(initialState, setEditorActiveFileId('1'))).toEqual(expectedState);
+    expect(fileReducer(initialState, setEditorActiveFile('1'))).toEqual(expectedState);
   });
 
-  it('should set the editor active file id to null when the action is setEditorActiveFileId', () => {
+  it('should set the editor active file id to null when the action is setEditorActiveFile', () => {
     const expectedState = {
       ...initialState,
       editorActiveFileId: null,
     };
 
-    expect(fileReducer(initialState, setEditorActiveFileId(null))).toEqual(expectedState);
+    expect(fileReducer(initialState, setEditorActiveFile(null))).toEqual(expectedState);
   });
 
   it('should update file code when the action is updateFileCode', () => {

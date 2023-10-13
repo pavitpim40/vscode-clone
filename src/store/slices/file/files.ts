@@ -3,31 +3,31 @@ import { UserFile } from '../../../types/Files';
 
 export interface FileState {
   userFiles: UserFile[];
-  activeFileIds: string[];
+  activeFilesIds: string[];
   editorActiveFileId: string | null;
 }
 
 export const initialState: FileState = {
   userFiles: [],
-  activeFileIds: [],
+  activeFilesIds: [],
   editorActiveFileId: null,
 };
 
 const fileSlice = createSlice({
   initialState,
-  name: 'file',
+  name: 'files',
   reducers: {
     setFiles(state, action: PayloadAction<UserFile[]>) {
       state.userFiles = action.payload;
-      state.activeFileIds = [];
+      state.activeFilesIds = [];
     },
     addActiveFile(state, action: PayloadAction<string>) {
-      state.activeFileIds.push(action.payload);
+      state.activeFilesIds.push(action.payload);
     },
     removeActiveFile(state, action: PayloadAction<string>) {
-      state.activeFileIds = state.activeFileIds.filter((id) => id !== action.payload);
+      state.activeFilesIds = state.activeFilesIds.filter((id) => id !== action.payload);
     },
-    setEditorActiveFileId(state, action: PayloadAction<string | null>) {
+    setEditorActiveFile(state, action: PayloadAction<string | null>) {
       state.editorActiveFileId = action.payload;
     },
     updateFileCode(state, action: PayloadAction<{ filedId: string; newCode: string }>) {
@@ -40,6 +40,6 @@ const fileSlice = createSlice({
   },
 });
 
-export const { setFiles, addActiveFile, removeActiveFile, setEditorActiveFileId, updateFileCode } = fileSlice.actions;
+export const { setFiles, addActiveFile, removeActiveFile, setEditorActiveFile, updateFileCode } = fileSlice.actions;
 
 export const fileReducer = fileSlice.reducer;

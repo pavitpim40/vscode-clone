@@ -17,12 +17,12 @@ type UserFilesMap = {
 //   '2': { id: '2', code: 'HelloWorld' },
 // };
 const selectActiveFiles = (files: FileState) => {
-  const { userFiles, activeFileIds } = files;
+  const { userFiles, activeFilesIds } = files;
   const userFilesMap = userFiles.reduce((acc, activeFile) => {
     acc[activeFile.id] = activeFile;
     return acc;
   }, {} as UserFilesMap);
-  return activeFileIds.map((id) => userFilesMap[id]);
+  return activeFilesIds.map((id) => userFilesMap[id]);
 };
 
 export default createSelector((state: RootState) => state.files, selectActiveFiles);
