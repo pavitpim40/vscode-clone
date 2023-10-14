@@ -20,13 +20,10 @@ const CustomTabPanel = (props:CustomTabPanelProps) => {
 	)
 }
 const CustomTabLabelContainer = styled('div')({
-  height: '100%',
+  height: '100vh',
 });
 
 
-const FileName = styled('div')(({ theme }) => ({
-  padding: '0px 5px',
-  color: theme.font,
-}));
+
 
 export default CustomTabPanel
